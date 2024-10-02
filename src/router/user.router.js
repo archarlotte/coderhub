@@ -1,9 +1,9 @@
 const KoaRouter = require('@koa/router');
+const userController = require('../controller/user.controller');
+const { verifyUser, handlePassword } = require('../middleware/user.middleware');
 
-const userRouter = new KoaRouter({ prefix: '/user' });
+const userRouter = new KoaRouter({ prefix: '/users' });
 
-userRouter.get('/', (ctx, next) => {
-  ctx.body = 'user information';
-});
+userRouter.post('/register', verifyUser, handlePassword, userController.create);
 
 module.exports = userRouter;
