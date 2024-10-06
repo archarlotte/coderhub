@@ -17,7 +17,7 @@ connectionPool.getConnection((err, connection) => {
   }
 
   connection.connect((err) => {
-    err ? console.log('failed', err) : console.log('success');
+    err ? console.log('failed', err) : console.log('database success');
   });
 });
 
