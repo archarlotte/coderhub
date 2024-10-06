@@ -13,9 +13,10 @@ const verifyUser = async (ctx, next) => {
     return ctx.app.emit('error', NAME_IS_NOT_EXISTS, ctx);
   }
 
-  if(users[0].password !== md5Password(password)) {
+  if (users[0].password !== md5Password(password)) {
     return ctx.app.emit('error', PASSWORD_IS_WRONG, ctx);
   }
+  ctx.user = users[0];
   await next();
 };
 

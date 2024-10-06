@@ -22,14 +22,6 @@ class MomentService {
     return values;
   }
 
-  async checkPermisson(userId, momentId) {
-    const statement = `SELECT * FROM moment WHERE id = ? AND user_id = ?;`;
-    const [result] = await connection.execute(statement, [momentId, userId]);
-    console.log(result);
-
-    return result;
-  }
-
   async changeMoment(content, momentId) {
     const statement = `UPDATE moment SET content = ? WHERE id = ?;`;
     const [values] = await connection.execute(statement, [content, momentId]);

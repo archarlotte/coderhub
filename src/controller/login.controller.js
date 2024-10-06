@@ -6,7 +6,7 @@ class LoginController {
     const { username } = ctx.request.body;
     const payload = { username, id: ctx.user.id };
     try {
-      const token = jwt.sign(payload, PRIVATE_KEY, { expiresIn: 60, algorithm: 'RS256' });
+      const token = jwt.sign(payload, PRIVATE_KEY, { expiresIn: 60 * 10, algorithm: 'RS256' });
       ctx.body = {
         token,
       };
