@@ -12,7 +12,6 @@ class MomentController {
 
   async list(ctx, next) {
     const result = await momentService.getMomentList();
-
     ctx.body = { result };
   }
 
@@ -36,6 +35,17 @@ class MomentController {
   async remove(ctx, next) {
     const { momentId } = ctx.request.params;
     const result = await momentService.removeMoment(momentId);
+
+    ctx.body = { result };
+  }
+
+  async addLabels(ctx, next) {
+    const { momentId } = ctx.request.params;
+    let result;
+    console.log(ctx.labelIds)
+    for (const labelId of ctx.labelIds) {
+      result = await momentService.addLabels(momentId, labelId);
+    }
 
     ctx.body = { result };
   }

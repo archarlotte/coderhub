@@ -21,9 +21,8 @@ const verifyAuth = async (ctx, next) => {
 
 const permission = (tableName) => {
   return async (ctx, next) => {
-    const keyId = ctx.params[0];
+    const keyId = Object.values(ctx.params)[0];
     const result = await permissionService.checkPermisson(tableName, ctx.user.id, keyId);
-
     if (!result.length) {
       return ctx.app.emit('error', PERMISSION_DENIED, ctx);
     }
