@@ -10,6 +10,7 @@ const {
   CONTENT_IS_REQUIRED,
   CONTENT_OR_MOMENT_ID_IS_REQUIRED,
   COMMENT_ID_IS_REQUIRED,
+  AVATAR_ID_IS_REQUIRED,
 } = require('../config/error');
 
 app.on('error', (error, ctx) => {
@@ -56,6 +57,10 @@ app.on('error', (error, ctx) => {
     case COMMENT_ID_IS_REQUIRED:
       code = -1010;
       message = COMMENT_ID_IS_REQUIRED;
+      break;
+    case AVATAR_ID_IS_REQUIRED:
+      code = -1011;
+      message = AVATAR_ID_IS_REQUIRED;
       break;
   }
   ctx.body = { code, message };

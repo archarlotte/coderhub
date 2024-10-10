@@ -20,8 +20,8 @@ class MomentService {
 
   async getMoment(momentId) {
     const statement = `
-    SELECT moment.id as momentId, moment.content as momentContent, moment.createAt, moment.updateAt, JSON_OBJECT('userId', mUser.id, 'username', mUser.username) as user,
-    JSON_ARRAYAGG(JSON_OBJECT("id", comment.id, "content", comment.content, "commentId", comment.comment_id, "user", JSON_OBJECT('userId', users.id, 'username', users.username))) as comments,
+    SELECT moment.id as momentId, moment.content as momentContent, moment.createAt, moment.updateAt, JSON_OBJECT('userId', mUser.id, 'username', mUser.username, "avatarUrl", mUser.avatar_url) as user,
+    JSON_ARRAYAGG(JSON_OBJECT("id", comment.id, "content", comment.content, "commentId", comment.comment_id, "user", JSON_OBJECT('userId', users.id, 'username', users.username, "avatarUrl", users.avatar_url))) as comments,
     (
       SELECT JSON_ARRAYAGG(JSON_OBJECT("id", label.id, "labelName", label.name))
 		  FROM label
