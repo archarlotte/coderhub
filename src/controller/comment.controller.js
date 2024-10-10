@@ -22,18 +22,7 @@ class CommentController {
 
     ctx.body = { result };
   }
-  // async list(ctx, next) {
-  //   const result = await momentService.getMomentList();
 
-  //   ctx.body = { result };
-  // }
-  // async getMoment(ctx, next) {
-  //   const { momentId } = ctx.request.params;
-
-  //   const result = await momentService.getMoment(momentId);
-
-  //   ctx.body = { result };
-  // }
   async changeComment(ctx, next) {
     const { content } = ctx.request.body;
     const { commentId } = ctx.request.params;

@@ -15,29 +15,6 @@ class LabelController {
     ctx.body = { result };
   }
 
-  // async getlabel(ctx, next) {
-  //   const { labelId } = ctx.request.params;
-
-  //   const result = await labelService.getlabel(labelId);
-
-  //   ctx.body = { result };
-  // }
-
-  // async changelabel(ctx, next) {
-  //   const { content } = ctx.request.body;
-  //   const { labelId } = ctx.request.params;
-  //   if (!content || !labelId) return ctx.app.emit('error', CONTENT_OR_label_ID_IS_REQUIRED, ctx);
-  //   const result = await labelService.changelabel(content, labelId);
-
-  //   ctx.body = { result };
-  // }
-
-  // async remove(ctx, next) {
-  //   const { labelId } = ctx.request.params;
-  //   const result = await labelService.removelabel(labelId);
-
-  //   ctx.body = { result };
-  // }
 }
 
 module.exports = new LabelController();
